@@ -11,33 +11,16 @@ definition(
 
 preferences 
 {
-    section("Kích hoạt kịch bản")
+    section("Chọn thông số kịch bản")
     {
-        input name:"sel",type:"enum", title:"Hoạt động", options: ["on","off"], defaultValue:"off"
-    }
-    section("Kiểu báo động")
-    {
-        input name:"typ",type:"enum", title:"Kiểu báo động", options: ["A","L","AL"], defaultValue:"L"
-    }
-    section("Chọn khoảng thời gian báo động")
-    {
-        input name: "timeB", type: "time", title: "Đặt thời gian bắt đầu"
-        input name: "timeE", type: "time", title: "Đặt thời gian kết thúc"
-    }
-
-    section ("Thời gian báo động")
-    {
-        input name: "tp", type: "number", title: "Báo động trong bao lâu(giây)?", defaultValue:"15"
-    }
-
-    section("Chọn cảm biến khi phát hiện mở cửa")
-    {
-        input("cs1","capability.contactSensor",title:"Cảm biến đóng, mở")
-    }	
-    section("Chọn Báo động")
-    {
-        input("alamH","capability.alarm",title:"Báo động ở Nhà")
-    }   
+        input name:"sel",type:"enum", title:"Chọn ON để kích hoạt kịch bản", options: ["on","off"], defaultValue:"off"
+        input name: "timeB", type: "time", title: "Thời gian kịch bản có hiệu lực"
+        input name: "timeE", type: "time", title: "Thời gian kịch bản kết thúc"
+        input("cs1","capability.contactSensor",title:"Khi cảm biến sau ở trạng thái mở")
+        input("alamH","capability.alarm",title:"Thì thiết bị sau sẽ báo động")
+        input name:"typ",type:"enum", title:"Với kiểu báo động A:còi, L: đèn nhấp nháy", options: ["A","L","AL"], defaultValue:"L"
+        input name: "tp", type: "number", title: "Trong khoảng thời gian(giây)?", defaultValue:"15"
+    }  
 }
 def installed()
 {
