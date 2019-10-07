@@ -21,8 +21,9 @@ preferences
 def installed() 
 {
     //schedule(timeCB, cb)
-    subscribe(location, "sunset", sunsetHandler)
     subscribe(location, "sunrise", sunriseHandler)
+    subscribe(location, "sunset", sunsetHandler)
+    
 }
 
 def updated() 
@@ -31,19 +32,20 @@ def updated()
 	//schedule(timeCB, cb)
 }
 
-def sunsetHandler(evt)
-{
-if (sel=="on")
-	{
-		sendPush("${txt1}: ${evt.displayName} ")
-	}	
-}
-
 def sunriseHandler(evt)
 {
 if (sel=="on")
 	{
-		sendPush("${txt2}: ${evt.displayName} ")
+		sendPush("${txt1}: ${evt.displayName} ")
 	}
 
 }
+
+def sunsetHandler(evt)
+{
+if (sel=="on")
+	{
+		sendPush("${txt2}: ${evt.displayName} ")
+	}	
+}
+
