@@ -13,7 +13,7 @@ preferences
  section("Chọn thông số cho kịch bản")
     {
         input name:"sel",type:"enum", title:"Chọn ON để kích hoạt kịch bản", options: ["on","off"], defaultValue:"off"
-        input name:"txt1",type:"text", title:"Với thông báo khi bắt đầu buổi sáng",defaultValue:"Mặt trời đã mọc, chúc một ngày tốt lành"
+        input name:"txt1",type:"text", title:"Với thông báo khi bắt đầu buổi sáng",defaultValue:"LMặt trời đã mọc, chúc một ngày tốt lành"
        	input name:"txt2",type:"text", title:"và thông báo khi mặt trời lặn",defaultValue:"Đã đến lúc nghỉ ngơi, cần nạp lại năng lượng cho ngày tiếp theo!"
     } 
 }
@@ -21,9 +21,8 @@ preferences
 def installed() 
 {
     //schedule(timeCB, cb)
-    subscribe(location, "sunrise", sunriseHandler)
     subscribe(location, "sunset", sunsetHandler)
-    
+    subscribe(location, "sunrise", sunriseHandler)
 }
 
 def updated() 
@@ -31,6 +30,8 @@ def updated()
 	unschedule()
 	//schedule(timeCB, cb)
 }
+
+
 
 def sunriseHandler(evt)
 {
@@ -48,4 +49,3 @@ if (sel=="on")
 		sendPush("${txt2}: ${evt.displayName} ")
 	}	
 }
-
