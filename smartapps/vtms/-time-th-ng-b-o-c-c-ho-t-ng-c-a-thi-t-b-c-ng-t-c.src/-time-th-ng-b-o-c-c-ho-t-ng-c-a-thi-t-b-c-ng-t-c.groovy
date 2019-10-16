@@ -16,7 +16,8 @@ preferences {
      input name: "timeB", type: "time", title: "Chọn giờ nhận thông báo"
      input name: "timeE", type: "time", title: "và giờ kết thúc"
      input("sw1","capability.switch",title:"Chọn danh sách thiết bị, công tắc cần nhận thông báo", multiple:true, required:true)     
-     input name:"txt",type:"text", title:"với nội dung thông báo",defaultValue:" "
+     input name:"txt1",type:"text", title:"Với thông báo khi Mở ",defaultValue:"Mở"
+     input name:"txt2",type:"text", title:"Với thông báo khi Tắt ",defaultValue:"Tắt"
      }
     
 }
@@ -45,14 +46,11 @@ def timeC=	now()
     if (dk)
     {
         if(evt.value=="on") 
-        {
-            tb("${txt}: ${evt.displayName} đang MỞ")
-        }
-        else 	
-        {
-            tb("${txt}: ${evt.displayName} đã TẮT")
-       }
-   }
+  			{sendPush( "${evt.displayName}: ${txt1}")}
+ 		 else 
+  		if(evt.value=="off") 	
+  			{sendPush("${evt.displayName}: ${txt2}")}
+  		 }
 }
 
 def tb(msg)
