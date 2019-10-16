@@ -45,11 +45,11 @@ def init()
 def lightON()
 {
 //	def sw1 = switches.find { it.displayName == theName }
-	sw1.on()
+if (sel=="on")	sw1.on()
 }
 
 def lightOFF()
 {
 //	def sw1 = switches.find { it.displayName == theName }
-sw1.off()
+if (sel=="on") sw1.off()
 }
