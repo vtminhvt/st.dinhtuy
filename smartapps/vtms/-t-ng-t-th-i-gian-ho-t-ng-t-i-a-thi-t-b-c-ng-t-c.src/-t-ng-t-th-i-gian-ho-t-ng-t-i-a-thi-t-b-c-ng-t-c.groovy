@@ -37,7 +37,8 @@ def init()
 
 def sw_1(evt)
 {
-def te=tmax *60
+	def te=tmax *60
+    sw1.on()
     if (sel=="on" && evt.value=="on") 
 	{
     	runIn(te,dOFF)   
