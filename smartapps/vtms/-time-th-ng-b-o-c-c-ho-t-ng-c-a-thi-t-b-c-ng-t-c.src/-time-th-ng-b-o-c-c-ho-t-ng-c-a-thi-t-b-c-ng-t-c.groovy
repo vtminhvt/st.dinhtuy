@@ -16,8 +16,8 @@ preferences {
      input name: "timeB", type: "time", title: "Chọn giờ nhận thông báo"
      input name: "timeE", type: "time", title: "và giờ kết thúc"
      input("sw1","capability.switch",title:"Chọn danh sách thiết bị, công tắc cần nhận thông báo", multiple:true, required:true)     
-     input name:"txt1",type:"text", title:"Với thông báo khi Mở ",defaultValue:"Mở"
-     input name:"txt2",type:"text", title:"Với thông báo khi Tắt ",defaultValue:"Tắt"
+     input name:"txt1",type:"text", title:"Với thông báo khi Mở ",defaultValue:""
+     input name:"txt2",type:"text", title:"Với thông báo khi Tắt ",defaultValue:""
      }
     
 }

@@ -14,8 +14,8 @@ preferences {
     section("Chọn thông số cho kịch bản")
     {
     	input("swCC","capability.switch",title:"Chọn danh sách thiết bị, công tắc bạn muốn nhận thông báo trạng thái", multiple:true, required:true)
-        input name:"txt1",type:"text", title:"Với thông báo khi Mở ",defaultValue:"Mở"
-       input name:"txt2",type:"text", title:"Với thông báo khi Tắt ",defaultValue:"Tắt"
+        input name:"txt1",type:"text", title:"Với thông báo khi Mở ",defaultValue:""
+       input name:"txt2",type:"text", title:"Với thông báo khi Tắt ",defaultValue:""
        
     }
 }
