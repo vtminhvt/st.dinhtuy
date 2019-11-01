@@ -1,5 +1,5 @@
 definition(
-    name: "[Tự động] Đặt thời gian hoạt động tối đa thiết bị, công tắc",
+    name: "[Tự động] Đặt thời gian hoạt động TỐI ĐA thiết bị, công tắc",
     namespace: "VTMS",
     author: "Võ Thanh Minh",
     description: "Điều khiển",

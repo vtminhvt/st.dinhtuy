@@ -16,7 +16,7 @@ preferences
        input name:"sel",type:"enum", title:"Chọn ON để kích hoạt kịch bản", options: ["on","off"], defaulValue:"off"
        input name: "timeE", type: "time", title: "Chọn giờ TẮT"
        input("sw1","capability.switch",title:"Chọn thiết bị, công tắc nhận lệnh điều khiển", multiple:true, required:true)
-		input name:"txt1",type:"text", title:"Với thông báo ",defaultValue:"Tiết kiệm: Đã tắt tất cả thiết bị"
+	   input name:"txt1",type:"text", title:"Với thông báo ",defaultValue:"Tiết kiệm: Đã tắt tất cả thiết bị"
     }
 }
 def installed() 
@@ -45,6 +45,9 @@ def lightON()
 def lightOFF()
 {
 //	def sw1 = switches.find { it.displayName == theName }
-sw1.off()
-sendPush( ${txt1})
+if (sel=='on')
+	{
+		sw1.off()
+		sendPush( ${txt1})
+    }
 }
