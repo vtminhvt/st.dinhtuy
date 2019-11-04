@@ -24,7 +24,8 @@ preferences
 }
 def installed() 
 {
-    init()
+  
+  init()
 }
 def updated() 
 {
@@ -34,6 +35,7 @@ def updated()
 
 def init()
 {
+	unsubscribe()
 	subscribe(motionCD,"motion",motion_CD)
   	subscribe(sw1,"switch",sw_1) 
 }
@@ -46,34 +48,23 @@ def motion_CD(evt)
 	
     def dk1= (timeofB<timeofE) && (timeC >= timeofB.time && timeC<=timeofE.time)
     def dk2= (timeofB>timeofE) && (timeC >= timeofB.time || timeC<=timeofE.time)
+    def dk12= (dk1 || dk2)
+  
     
-    if (evt.value == "active" && sel == "on")
-    {
-    
-        if (dk1 || dk2)
-		{
+  if (evt.value == "active") {
+        if (dk12 && sel == "on" ){
             sw1.on()
             def timeP=timeofP*60
+            log.debug "${timeP} giá trị là"
             runIn(timeP,lightOFF)
-            //
+            
 		}
-	}	
-	else
-	{
-		//log.debug "timeP= ${timeP}"
-	}
+        else {
+        }
+     }	
 }
 
 def lightOFF()
 {
-	def t=motionCD.currentValue("motion")
-    if(t=="active") 
-    {
-    	def timeP=timeofP*60	
-    	runIn(timeP,lightOFF)    	
-    }
-    else
-    {
-    	sw1.off()
-    }   
-}
+   	sw1.off() 
+}  

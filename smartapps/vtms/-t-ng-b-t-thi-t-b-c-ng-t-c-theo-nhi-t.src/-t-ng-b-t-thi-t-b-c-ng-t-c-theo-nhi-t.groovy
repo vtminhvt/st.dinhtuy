@@ -38,8 +38,7 @@ def init()
 def temp_1(evt)
 {
 	def ctemp = temp1.currentState("temperature")
-    log.debug "temperature value as a string: ${currentState.value}"
-    
+        
 	if (ctemp.value>=nd1)
 		{
         sw1.on()
