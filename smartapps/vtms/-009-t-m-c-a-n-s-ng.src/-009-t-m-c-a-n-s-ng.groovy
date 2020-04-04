@@ -49,14 +49,15 @@ def cs_1(evt)
     
     if (evt.value == "open" && sel == "on")
     {
-    
-        if (dk1 || dk2)
+            if (dk1 || dk2)
         {
             sw1.on()
+            runIn(timeP,lightOFF)
         }
     }
-    if(evt.value=="closed")
-    {
-            sw1.off()
-    }
+}
+
+def lightOFF()
+{
+   	sw1.off() 
 }
